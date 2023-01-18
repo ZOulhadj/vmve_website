@@ -1,0 +1,26 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+
+// Overwrite default bootstrap options and colors
+$primary: #3bba9c;
+$secondary: #707793;
+
+//$body-bg: #2e3047;
+//$body-color: #2e3047;
+
+$border-radius: 0;
+//$success: #7952b3;
+
+@import "bootstrap/scss/bootstrap";
+
+
+body {    
+    font-family: 'Kanit', sans-serif;
+    // margin-top: 80px !important;
+}
+
+.landing {
+    background: linear-gradient(0deg, rgba(46, 48, 71, 0.95), rgba(46, 48, 71, 0.95)), url("../images/landing.png") center no-repeat;
+    background-size: cover;
+}

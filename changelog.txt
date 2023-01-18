@@ -1,0 +1,215 @@
+(3a96006) Zakariya Oulhadj Some changes.
+(581627b) Zakariya Oulhadj Fixed multiple bugs including resizing crash, crash when window size is 0, 0 and also cleaned up a bit of code related to GPU querying. #9 can be marked as solved since development is done on a single machine and therefore, I don't have access to hardware with multiple GPUs. Once the time comes, then this particular issue can be looked at.
+(4b58d09) Zakariya Oulhadj Removed shadows as they are not fully implemented. Added uniform scale option.
+(7350a7d) Zakariya Oulhadj Added initial win32 code so that GLFW can be replaced in the future. Working on fixing window resizing since it now crashes for some reason.
+(0efdad3) Zakariya Oulhadj Added initial audio setup, removed debug printing for previous commit.
+(4576003) Zakariya Oulhadj Fixed instance table meaning that adding or removing instances no longer crashes. The code should be further cleanup up.
+(c91376e) Zakariya Oulhadj Some UI code cleanup.
+(b2839aa) Zakariya Oulhadj Added a simple key callback for VMVE. Will need to rework the event system within the engine anyways.
+(97114b7) Zakariya Oulhadj Fixed IV not being generated. The issue was that I was using HexDecoder instead of HexEncoder. A difference of two characters...
+(38659b9) Zakariya Oulhadj Added empty comment blocks to engine header file in order to add detailed comments later.
+(3db2831) Zakariya Oulhadj Continued work. Also moved UI to its own file.
+(1eaa2d4) Zakariya Oulhadj Added copy to clipboard for model exporting.
+(7a301a8) Zakariya Oulhadj Continued work towards enabling all UI functionaility.
+(aaddb72) Zakariya Oulhadj Removed .gitmodules as they are no longer used.
+(ff53a40) Zakariya Oulhadj Added window icon support, added cryptopp library to vmve. Only issue is that the static lib file is more than 100mb and so cannot be pushed to git.
+(1c8bed3) Zakariya Oulhadj Updated logging formatting.
+(72475e6) Zakariya Oulhadj Added logs exporting. Model import window now sets the directory based on the executables current location.
+(d0b8195) Zakariya Oulhadj Trying to implement complete framebuffer resizing but to no end. Will try again soon.
+(3c3d433) Zakariya Oulhadj Trying to figure how to correctly structure the code using this new project structure.
+(825fd3b) Zakariya Oulhadj Major changes to project structure. Now the engine and vmve are unique projects.
+(fabb01f) Zakariya Oulhadj #60 Fixes bug when attempting to resize window/swapchain. The fix executes a dummy queue submision that unsignals the semaphore and makes it ready for the next call to vkAcquireNextImageKHR.
+(4e1583a) Zakariya Oulhadj Changed the way that pipelines are created. This method will ensure that we can update specific pipelines without needing to worry about other pipelines since each one is isolated.
+(6d0e7d3) Zakariya Oulhadj Continued debugging shadows. Seems like light space depth does work but for some reason the projCoords.z does not work correctly.
+(dab9991) Zakariya Oulhadj Will perform a quick test to see if shadows work not using a reversed depth buffer.
+(8b120c8) Zakariya Oulhadj Shadows are still broken. However, now model loading is more efficient as the same type of sub-mesh is combined into 1 mesh. The sponza model went from 300+ meshes to now around 20.
+(f2cc54d) Zakariya Oulhadj Nothing major.
+(66ef8d4) Zakariya Oulhadj Still working on shadows. Some things are not quite right. Will need to figure it out.
+(b9ab0d6) Zakariya Oulhadj First attempt at shadows. Is it working? Yes, but no. All data that is required is available but I need to configure shadow mapping properties.
+(b31473f) Zakariya Oulhadj Restructured the command buffers so that they are not hard coded into the renderer. Also this will allow us to have multiple render passes without linking each one directly to its own command buffer.
+(6e3dc3f) Zakariya Oulhadj Fixed a small bugged related to the Vertex memory alignment.
+(c4a08e7) Zakariya Oulhadj Added initial skybox and shadow pass resources. Will attempt to refactor the code and find out if its possible to have all rendering passes in a single command buffer. Seems like it should be?
+(11f0a27) Zakariya Oulhadj Just moving code around.
+(36719b6) Zakariya Oulhadj Fixed conflicting command buffer names.
+(5d0baa6) Zakariya Oulhadj Some additional syntax changes.
+(ba84ab0) Zakariya Oulhadj Additional code cleanup.
+(e4aa7a1) Zakariya Oulhadj Cleaning up the code and removing certain functions. Also, changed naming convention.
+(6f39f53) Zakariya Oulhadj Some additional progress. Still getting confused in regards to if framebuffers and/or uniform buffers use swapchain image count or frames in flight. Triple buffering still stutters for some reason. Worked on UI code for encryption.
+(3057835) Zakariya Oulhadj Lots of bugs that need to be addressed.
+(7f3a0a9) Zakariya Oulhadj Added macro for locking camera yaw.
+(a69ec02) Zakariya Oulhadj #5 Is now fixed as no camera jumping occurs anymore. There could be a slight improvement such as when exiting the viewport, the mouse cursor could return back to the center of the window instead of staying in its original position. Might open an issue specific to this.
+(90dbcb1) Zakariya Oulhadj Updated folder structure and added a directx context file for future use.
+(4824bee) Zakariya Oulhadj Changed all uses of a real path from std::string to std::filesystem::path.
+(52287d7) Zakariya Oulhadj Added some initial code for a camera frustum.
+(0cfc9d9) Zakariya Oulhadj Got the first working version of multiple su-mesh model loading.
+(211ab19) Zakariya Oulhadj Added an important TODO comment regarding texture loading.
+(0013c00) Zakariya Oulhadj Making progress towards loading complex objects. This will most likely require a slight rewrite in the renderer regarding how models are rendered since multiple meshes can make up a single model. Also VFS real path now uses std::filesystem::path instead of string since this better indicates that this is a path and contains some useful helper functions.
+(07a88d7) Zakariya Oulhadj Fixed instance list from going out of bounds.
+(793c0c6) Zakariya Oulhadj Small changes.
+(85b55bb) Zakariya Oulhadj Big changes! Now I have implemented unique instances, command line parsing structure, additional error checking. Most of the code for instancing is temporary and should be seen as a proof of concept.
+(011a4a5) Zakariya Oulhadj Updated the way the geometry render pass/framebuffers are created. Will continue working on this design as it allows for easier management of individual framebuffer attachments and is nessary when attempting to implement more rendering passes.
+(978d0be) Zakariya Oulhadj Some changes. Using if branches instead of max function. Not sure which method is best but will stick with this for now. Will now attempt to make some progress with shadow mapping and this is what is missing from the lighting calculations.
+(f49123c) Zakariya Oulhadj Been working on adding correct normal mapping. Not going to lie. It's hard work. Framebuffer formats were tweaked and mainly working on the shaders.
+(89021ac) Zakariya Oulhadj Marked quad vertices and indices as const.
+(0746762) Zakariya Oulhadj Removed descriptor_binding struct since descriptor type is already part of the VkDescriptorSetLayoutbinding struct and therefore, an additional variable is not needed.
+(6ee6293) Zakariya Oulhadj Added some comments for better readablity.
+(51d242e) Zakariya Oulhadj Removed old camera and scene buffers.
+(9eea9bc) Zakariya Oulhadj Changed how descriptors are made. By extracting certain elements, it made a little easier to implement.
+(fcd15fa) Zakariya Oulhadj Removed pipeline_t and replaced it with VkPipeline. After removing the pipeline layout from the structure in the previous commit, there was no need to have a pipeline_t.
+(0a3daa5) Zakariya Oulhadj Testing the use of a single camera and scene buffer and using offsets for the camera instead of seperate buffers. I also seperated pipeline layouts from pipelines as multiple pipelines can share the same layout. So we don't need to recreate the same pipeline layout.
+(2ec9601) Zakariya Oulhadj Changed the alignment of sandbox_scene struct and added a small function that automatically creates a buffer that matches the minimum uniform buffer alignment.
+(1335a0a) Zakariya Oulhadj Added some additional logging information. Will now work on adding dynamic descriptor sets so that we can have a single large buffer and simply each frame a different offset is used. This should make my life a lot easier when working with descriptors.
+(34a5499) Zakariya Oulhadj Added some content into README.md
+(63ea94d) Zakariya Oulhadj Mainly worked on the UI and adding some basic elements that will be required for the encryption system. Also changed some formatting within the code.
+(9ae4198) Zakariya Oulhadj Added a simple test function for writing to a file. Will continue working on this to develop a custom file format.
+(6da6e3d) Zakariya Oulhadj Changes.
+(e942a88) Zakariya Oulhadj Some code changes.
+(b78ada4) Zakariya Oulhadj Will soon start working on the .vmve file format.
+(762c58b) Zakariya Oulhadj Managed to get the skysphere rendering again.
+(7157882) Zakariya Oulhadj Worked on cleaning up some of the code as well as adding some basic timing functionaility for the UI.
+(291767b) Zakariya Oulhadj Added a variables file that will contain constant values specific to the application which can be accessed globally.
+(e846974) Zakariya Oulhadj Lots of changes to the backend, more specifically with regards to descriptor sets and how they are managed.
+(f60033f) Zakariya Oulhadj Some changes.
+(3627b50) Zakariya Oulhadj Geometry pass now supports 32bit positions instead of the 16bits it previously supported.
+(58b008a) Zakariya Oulhadj Added async model loading, a basic logging system and removed fonts as they are not needed at the moment.
+(4a61327) Zakariya Oulhadj Big changes. Basic deferred rendering is now working. Although skybox is still not being rendered and full lighting has to be implemented.
+(94305b5) Zakariya Oulhadj Some additional changes to the load UI dialog.
+(f22abd8) Zakariya Oulhadj Small change. Going to work on opening model files though the UI.
+(d2b2a41) Zakariya Oulhadj Big shift in how images and framebuffers are handled. I think the best direction to go is to combine an image and framebuffer into a single render target structure.
+(20dfa72) Zakariya Oulhadj Added a temporary GPU name field in the UI. Will need to implement this properly by most likely storing the name of the GPU in our own structuture.
+(a177f43) Zakariya Oulhadj Significant work related to frame sync. Managed to fix a small bug when ImGui::Image for the viewport. Now there are multiple color images (one per swapchain image). Both double and triple buffering works as expected now and might of fixed stuttering issues.
+(30d8fdd) Zakariya Oulhadj #41 Addresses issue and is working. Will need to implement a properly solution.
+(ad26d1f) Zakariya Oulhadj #25 This commit includes a change which stops a window resize from crashing. The way that this is implemented is not how I would like it but was done for testing purposes. The next commit redesign the code for a proper implementation.
+(1b26ee9) Zakariya Oulhadj Added some basic normal and specular mapping. Models can be loaded with textures automatically.
+(64c7273) Zakariya Oulhadj Changed quad to go from -0.5 to 0.5 instead of -1.0 to 1.0. This is so that the length of one side totals 1 instead of 2.
+(e3c002d) Zakariya Oulhadj Some changes.
+(70ce1ac) Zakariya Oulhadj Significant changes in many different aspects of the application. A key feature though is now I can toggle between UI and viewport. Will need to reimplement this properly in the future.
+(da3a733) Zakariya Oulhadj Small change. Will attempt to reintroduce multiple frames in flight for better GPU performance and reducing idling for the host.
+(158fdf5) Zakariya Oulhadj Made some changes to the code including adding a second model, camera is locked on a single axis and texture loading.
+(a90723b) Zakariya Oulhadj Made some small changes.
+(c135216) Zakariya Oulhadj #24 Significant code restructuring which will make it alot easier when working with materials, objects and instances as a whole. Additional work is still required in order to implement normals and specular mapping but at the moment albedo is working.
+(96947d2) Zakariya Oulhadj Just going to do a small commit before making significant changes related to materials.
+(103c45b) Zakariya Oulhadj Fixed path and added intial material files.
+(2429b83) Zakariya Oulhadj Fixed a couple of bugs that MSVC detected and made some changed in the CMakeLists.txt file to ensure it compiles on Windows.
+(479f7bd) Zakariya Oulhadj Added a different model with textures.
+(29a7a13) Zakariya Oulhadj vertex array now takes vectors for better type safety and also fixed format for textures.
+(11d4375) Zakariya Oulhadj Changed VFS to a singleton as there will only be one instance throughout the entire application.
+(d72ae74) Zakariya Oulhadj UI code restructuring for better readability inside the main rendering loop.
+(0dbf868) Zakariya Oulhadj Fixed a small bug in get_path() that crashed if the last character was a '/'.
+(0077c5d) Zakariya Oulhadj Moved shaders into assets and added a todo regarding a specific crash that occurs in the VFS.
+(2da2d14) Zakariya Oulhadj #34 is now complete. This commit adds a basic VFS that can be used to load files from different real paths.
+(a8b5adf) Zakariya Oulhadj Fixed #43. The issue was related to const char*. The length of the string was enough to fit the initial string however, when updated with new directory names then it would no longer fit. Therefore, I changed the type to std::string as this will automatically reallocate the string to fit a new length.
+(dfb04d5) Zakariya Oulhadj #42 Got a basic filesystem being rendered along with a couple of icons. At the moment the icons are being loaded individually, but it would be more efficient to use a texture atlas.
+(bc8acb1) Zakariya Oulhadj Added some basic filesystem iteration and combined that with the ui system. Will need to continue working on this in order to be able to fully interact with files and folders on a system. One notable mention is that performance seems to greatly decrease when more elements are rendered. This makes sense however, I should look at this more closely.
+(234bde0) Zakariya Oulhadj Added a very basic and naive implementation of AES encryption/decryption.
+(ebd6b9e) Zakariya Oulhadj Changed skysphere button to an image button instead.
+(a8a9518) Zakariya Oulhadj Added ImGuizmo, skybox texture and will start working on a virtual file system.
+(1b22174) Zakariya Oulhadj #27 UI windows are now non-movable and are programmatically set. This means the application has a default layout.
+(5f650fa) Zakariya Oulhadj Some small changes.
+(bd4d66f) Zakariya Oulhadj Added some custom UI colors.
+(2bcecb6) Zakariya Oulhadj #38 This commit fixes a texture color bug. Textures were being loaded as BGRA when instead they should be loaded as RGBA.
+(49b803f) Zakariya Oulhadj Added basic lighting to grid and some shader refactoring.
+(b2bd6b8) Zakariya Oulhadj Working on grid shaders.
+(4195e5d) Zakariya Oulhadj Added a minimization event so that when the application is not shown then no rendering will take place and therefore, making the program very efficient. The next step would be to move any window size checks out of the renderer as it should not be the responsible for it.
+(55a49f7) Zakariya Oulhadj Made quite a few changes to the renderer structure. Some objects such as the shader compiler and pools were moved out of the renderer context as it's reserved for objects that create other objects.
+(c3cc7c3) Zakariya Oulhadj Abstracted uniform buffer creation as well as updating descriptor sets.
+(910f684) Zakariya Oulhadj Few changes.
+(3c8c4f8) Zakariya Oulhadj Few changes.
+(832c6bc) Zakariya Oulhadj Added the Crypto++ library that will be used for encryption for the custom model format.
+(683bdd4) Zakariya Oulhadj Added an initial grid instead of the flat ground. Also need to work on adding some sort of rendering state object that would encapsulate objects such as pipeline, framebuffer, render pass, descriptor sets and all required buffers.
+(b57a277) Zakariya Oulhadj Added the vulkan debug callback for more control of how validation errors are printed.
+(540cc24) Zakariya Oulhadj Added a check for mailbox presentation mode.
+(84d4747) Zakariya Oulhadj Now the ui starts up each time with the same static layout. Added flag to descriptor pool so that individual descriptor sets can be removed.
+(a556b37) Zakariya Oulhadj Added LICENSE.md
+(6e09286) Zakariya Oulhadj Moved ImGui and STB includes to 3rd-party section in CMakeLists.txt.
+(e0b29bd) Zakariya Oulhadj Updated CMakeLists.txt
+(2598c6a) Zakariya Oulhadj Updated CMake project name.
+(6b93f18) Zakariya Oulhadj Initial develop branch commit.
+(21df527) Zakariya Oulhadj Final main branch commit as I will now be only releasing stable versions into main and working off a develop branch instead.
+(deb450f) Zakariya Oulhadj Removed some unused code from the renderer.
+(d900f61) Zakariya Oulhadj Seems like it might actually be working! Still need to fix resizing but quite a lot of progress in the last couple of days.
+(0ba052a) Zakariya Oulhadj Currently, a frame is being displayed within the viewport! Still not 100% correct usage as I am getting validation errors, but it's a step in the right direction.
+(d29e1d9) Zakariya Oulhadj Now I believe that there is a single back buffer. Not optimal but code is simpler and can only added multiple frames in flight in the future once I better understand Vulkan.
+(8c3c73f) Zakariya Oulhadj Created basic resources for offscreen rendering. However, for the next commit I will most likely go from rendering multiple frames in flight to only using a single frame. Yes this will result in poorer performance since the GPU needs to wait until the next frame however, the code will be much simpler.
+(0760d48) Zakariya Oulhadj Final commit before working on renderer redesign. In the event I need to rollback, this will be that commit.
+(2a06ba4) Zakariya Oulhadj Forgot to remove "tinyobjloader" from CMakeLists.txt
+(127d3a2) Zakariya Oulhadj Removed "tinyobjloader" now that we are using Assimp.
+(e7c5f40) Zakariya Oulhadj Removing JSON library as this will no longer be needed.
+(b99d04b) Zakariya Oulhadj A few changes however, I now know that I will need to render to an image/image view instead of rendering directly to a swapchain. This is required if we want to be able to render into an ImGui viewport.
+(ec691ea) Zakariya Oulhadj Change styling once again. I promise this will be the last time I change it. Started working on ImGui viewport setup.
+(001203d) Zakariya Oulhadj Added a code snippet for later.
+(4a488ff) Zakariya Oulhadj Formatting changes.
+(0490578) Zakariya Oulhadj Added framebuffer recreation for color only framebuffers. Will need to test application on another operating system to check if the resizing issue is common.
+(01821bf) Zakariya Oulhadj Started work on the new project idea which is a Vulkan based 3D model importer and exporter. Currently, I need to fix window resizing and framebuffers. Did some refactoring so that a render pass and framebuffer are not directly attached giving me better flexibility.
+(66fe4eb) Zakariya Oulhadj Final commit before changing course and shifting the code based to the newly set out project requirements.
+(e47d569) Zakariya Oulhadj Fixed a bug with the uptime variable where it would continuously increase the value by the number of seconds since the system was initialised per frame. This is now by delta time so no matter how fast the main loop runs, each second should be a second.
+(cf0e87f) Zakariya Oulhadj #23 has been fixed. Added some lower resolution textures and mainly working on geocentric coordinate system conversions which still needs to be fully implemented.
+(5596937) Zakariya Oulhadj Pushing from new laptop and also developing on Fedora Linux 36. The program did not run the first time due to a couple of overlooked bugs such as not using the correct case-sensitive path names (actually matters on Linux) and not using the VMA_IMPLEMENTATION macro to implement the VMA functions.
+(0967e3e) Zakariya Oulhadj Most resources are now allocated on the stack as there is no need to use the heap.
+(36e6233) Zakariya Oulhadj Major structural changes. Key aspects of the renderer have been seperated into different files such as renderer context and buffer allocation. To make my life easier for the time being, I will create everything inside the Main.cpp file. This file will represent the client application using the rendering engines resources.
+(c25c1cb) Zakariya Oulhadj Next step will be to implement instanced rendering.
+(41a90e0) Zakariya Oulhadj Changed the structure of a few files and fixed a couple of shader bugs.
+(9729233) Zakariya Oulhadj Still working on descriptor sets and general structure.
+(dae7cdf) Zakariya Oulhadj Added couple of shaders.
+(e28e348) Zakariya Oulhadj Current commit is broken. Only pushing so that I can continue working on another device. Right now I am trying to re-structure descriptor sets and how objects in the world interact with each other.
+(92f9b98) Zakariya Oulhadj Changed programming style so that function brackets are on the same line instead of a new line. This will save us a lot of vertical space in the long run.
+(659f10c) Zakariya Oulhadj Mainly working on textures and making debugging easier. The issue #16 was the feature I was working on last and needs to be fixed before we can load more models.
+(07e79d9) Zakariya Oulhadj Currently working on normal mapping and getting TBN matrix to work.
+(947a257) Zakariya Oulhadj Updated README.md contents.
+(399abbe) Zakariya Oulhadj Added README.md file.
+(7341820) Zakariya Oulhadj Updated submodules and removed some old commented out code.
+(18eaf70) Zakariya Oulhadj Implemented Assimp for model loading and now have tangent calculations in the shaders. There are currently two main issues that need to be fixed. The first is that certain areas are dark when they should be light and vice versa. Secondly, there might be a UV coordinate issue.
+(89f88f3) Zakariya Oulhadj Currently working on fully implementing normal mapping. Saving work before adding Assimp for tangent calculations. I also need to redesign how the descriptors are set up in the event certain objects don't have normal/specular mapping.
+(e6f8feb) Zakariya Oulhadj Implemented an initial working version of normal and specular mapping. I must say that it already makes it looks much more realistic even though the code contains incorrect lighting details.
+(f6abe72) Zakariya Oulhadj Will change version to Vulkan 1.2 instead of 1.3 due to macOS drivers not being up-to-date.
+(24422fb) Zakariya Oulhadj Significant structural changes including the ability to change additional lighting options from within the application.
+(ce9414b) Zakariya Oulhadj Fixed skysphere asset path.
+(12fc406) Zakariya Oulhadj Some changes to the code.
+(8ac1b52) Zakariya Oulhadj Quite a few structural changes. Tried implementing layers for events however, that was a massive failure. Will need to think about how to implement an event system which is simple.
+(278284e) Zakariya Oulhadj Major code structure changes. Mostly moving application specific resources outside the renderer so that they can be accessed properly. Code still needs to be cleaned up.
+(52d9994) Zakariya Oulhadj Big changes. Space space text rendering, skybox and more. We need to clean the backend code.
+(413f2ab) Zakariya Oulhadj Got textures per object working. Started working on skybox.
+(0744db2) Zakariya Oulhadj Reversed a couple of changes. Need to work on render pass creation API.
+(f515e50) Zakariya Oulhadj Currently working on redesigning the render pass/framebuffer creation in order to start implementing deferred rendering in the near future.
+(b3195b3) Zakariya Oulhadj A few changes.
+(f305dab) Zakariya Oulhadj A few changes.
+(af326a7) Zakariya Oulhadj Some small changes.
+(15cca26) Zakariya Oulhadj Major progress with descriptor sets. Lighting has also been added. Need to figure out how to get unique textures loading per entity.
+(f337f63) Zakariya Oulhadj Lots of changes in regards to render passes and UI. Multiple render passes now work however, additional work is required.
+(ceab3eb) Zakariya Oulhadj Mainly refactoring the create_renderer_context function.
+(41b9cfb) Zakariya Oulhadj Added a couple of textures and going to start working on this project full-time.
+(212f45f) Zakariya Oulhadj Small changes.
+(7df315d) Zakariya Oulhadj For the first time, I have textures working in Vulkan. However, the code has to be completely redone properly.
+(4fcc8aa) Zakariya Oulhadj Added an ISS model and made a few code changes. The main thing I should work on is texture loading since I now tired of just looking at normals all day long.
+(ec46ed9) Zakariya Oulhadj Implemented new functionality based on WGS 84 spec. Got basic object translating with the planet.
+(3a5a461) Zakariya Oulhadj Implemented some basic geographic to cartesian system conversion and vice-versa. This still needs to be worked on.
+(bd3dc04) Zakariya Oulhadj Changed engine header file extension and removed C++ style function pointer for events as it's not required.
+(e35f76c) Zakariya Oulhadj Converted some libraries into git submodules for easier project cloning and updating.
+(9d99bac) Zakariya Oulhadj Precompiled headers seem to work on macOS so it seems it's a Windows-only issue that needs to be resolved.
+(3fd7e0b) Zakariya Oulhadj Few changes.
+(bbbccfe) Zakariya Oulhadj Few changes.
+(aa1e3f5) Zakariya Oulhadj Made a couple of changes to make it work on macOS. Device extension must be looked at and Framebuffer size due to the high density pixels on a Retina display.
+(933ba0b) Zakariya Oulhadj Attempting to fix PCH not working. Might be a Windows-only issue. Still trying to debug.
+(c73d626) Zakariya Oulhadj Converted from PascalCase to snake_case for the final time. Sticking with this from now on.
+(66518f5) Zakariya Oulhadj Fixed resizing.
+(b746f20) Zakariya Oulhadj Added an event system.
+(dc37a6b) Zakariya Oulhadj Got a basic render passes working however, resizing still needs to be fixed and I need to be able to combine the results of the different render passes together.
+(a29ce91) Zakariya Oulhadj Last commit for the RenderState struct. Given new details I have learnt, I believe that there is a 1 to many relationship between render passes and pipelines and thus, will work on that.
+(6530a0c) Zakariya Oulhadj Working on a RenderState concept. Everything is still being designed.
+(f1bd651) Zakariya Oulhadj Fixed all issues while separating the files. Still more work to do.
+(7eb9924) Zakariya Oulhadj Progress being made.
+(f5b30b9) Zakariya Oulhadj Currently working on separating all functionality for decreased compilation times and easier to understand code.
+(1253e4a) Zakariya Oulhadj Removed commented out line.
+(3dabe23) Zakariya Oulhadj Removed glm header file from engine interface. Goal is to keep the engine interface C compatible. At the moment we are using the Engine namespace so we may need to remove that if we would like clients to use the engine in a C program.
+(d1b37df) Zakariya Oulhadj Removed previously used hardcoded submit to GPU code for the ui.
+(1dca805) Zakariya Oulhadj Moved UI code and added a todo comment.
+(2f4fb1f) Zakariya Oulhadj Made significant changes to how buffer creations happens. A VertexBuffer now creates a staging buffer in order to copy data into GPU-only memory for improved performance. Also, I implemented a simple function that executes code on the GPU which is called SubmitToGPU. This will be quite important when submitting textures. Majority of the buffer creation code still needs to be worked on.
+(8101d0c) Zakariya Oulhadj Moved render pass begin and end code out of the command buffer functions. This will allow us to have multiple render passes within a single command buffer.
+(2f6e9b1) Zakariya Oulhadj Cleaning up the code.
+(cb38b09) Zakariya Oulhadj Changes to Entity API.
+(059a4ea) Zakariya Oulhadj Added a few functions to the entity API.
+(48b365f) Zakariya Oulhadj Changed variable name.
+(5fb3a01) Zakariya Oulhadj Buffer creation API worked on.
+(bdda3f9) Zakariya Oulhadj Removed any reference to D3D12 as I will only stick to Vulkan for the time being.
+(9cb1aa4) Zakariya Oulhadj Removed RenderingAPI enum.
+(dad5a7e) Zakariya Oulhadj Initial commit

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VMVE</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand border-end px-2" href="#"><i class="bi bi-boxes"></i> <span class="text-primary">VMVE</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#downloads">Downloads</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="changelog.txt" target="_blank">Changelog</a></li>
+                            <li><a class="dropdown-item" href="assets/report/report.pdf" target="_blank">Thesis</a></li>
+                            <li><a class="dropdown-item" href="#" target="_blank">Support me</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Contact</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                          <div class="valid-feedback">
+                            Valid email address!
+                          </div>
+                          <div class="invalid-feedback">
+                            Please enter a valid email address.
+                          </div>
+                          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Message</label>
+                          <textarea class="form-control" aria-label="With textarea" required></textarea>
+                          <div class="valid-feedback">
+                            Valid message!
+                          </div>
+                          <div class="invalid-feedback">
+                            Please enter a valid message.
+                          </div>
+                        </div>
+                        <!-- <div class="mb-3 form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div> -->
+                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                        <div class="float-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
+                            <button type="submit" class="btn btn-primary">Send</button>    
+                        </div>
+                        
+                      </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="vh-100 d-flex flex-column justify-content-center align-items-center px-4 mb-5 text-center landing border-bottom border-dark">
+        <h1 class="display-4 text-white animate__animated animate__fadeInDown">
+            <span class="fw-bold text-primary">VMVE</span>
+        </h1>
+        <div class="col-lg-6 mx-auto animate__animated animate__fadeInUp">
+            <p class="lead mb-4 text-light">
+                A lightweight 3D environment visualizer.
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                <a href="#features" type="button" class="btn btn-outline-light btn-lg px-4 rounded-0">
+                    Find out more
+                </a>
+                <a href="#downloads" type="button" class="btn btn-primary btn-lg px-4 me-sm-3 rounded-0 shadow-lg">
+                    Download
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div>
+            <h1 id="features">Features</h1>
+            <ul>
+                <li>Lightweight (Only 4mb)</li>
+                <li>Vulkan rendering API</li>
+                <li>Supports 64bit world positions</li>
+                <li>Deferred rendering pipeline</li>
+                <li>G-Buffer visualization</li>
+                <li>Asynchronous model loading</li>
+                <li>Quaternion camera system</li>
+                <li>Model encryption</li>
+                <li>Dynamic virtual environment</li>
+                <li>Custom vmve file format</li>
+                <li>Model format encryption</li>
+                <li>Powered by Custom Engine</li>
+            </ul>
+        </div>
+
+
+        <div>
+            <h1 id="gallery">Gallery</h1>
+
+            <div>
+                <a href="images/1.png"><img src="images/1.png" class="img-fluid" width="200" alt="..."></a>
+                <a href="images/2.png"><img src="images/2.png" class="img-fluid" width="200" alt="..."></a>
+                <a href="images/3.png"><img src="images/3.png" class="img-fluid" width="200" alt="..."></a>
+                <a href="images/4.png"><img src="images/4.png" class="img-fluid" width="200" alt="..."></a>
+                <a href="images/5.png"><img src="images/5.png" class="img-fluid" width="200" alt="..."></a>
+                <a href="images/6.png"><img src="images/6.png" class="img-fluid" width="200" alt="..."></a>
+                <a href="images/7.png"><img src="images/7.png" class="img-fluid" width="200" alt="..."></a>
+                <a href="images/8.png"><img src="images/8.png" class="img-fluid" width="200" alt="..."></a>
+            </div>
+        </div>
+
+        <div>
+            <h1 id="downloads">Downloads</h1>
+            <div class="alert alert-warning alert-dismissible d-flex align-items-center" role="alert">
+                <i class="bi bi-exclamation-diamond-fill fs-2"></i>
+                <ul>
+                    <li>VMVE is under active development and therefore, backwards compatibility between versions is not guaranteed.</li>
+                    <li>If any bugs or issues are found within the application, please report them so that they can be resolved. </li>
+                </ul>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>  
+            <table class="table">
+                <tr>
+                    <th>Release Date</th>
+                    <th>Version</th>
+                    <th>Size</th>
+                    <th>Download</th>
+                </tr>
+                <tr>
+                    <td>05/05/2023</td>
+                    <td>0.0.2</td>
+                    <td>4mb</td>
+                    <td>
+                        <a href="assets/downloads/vmve.exe">Windows</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>27/01/2023</td>
+                    <td>0.0.1</td>
+                    <td>2mb</td>
+                    <td>
+                        <a href="assets/downloads/vmve.exe">Windows</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+            <p class="text-center text-muted">
+                A project developed by 
+                <a href="https://zakariyaoulhadj.com" target="_blank">Zakariya Oulhadj</a>
+            </p>
+        </footer>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
