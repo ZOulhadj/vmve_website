@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "sass-dev": "sass --watch --update --style=expanded scss:css",
-    "sass-prod": "sass --no-source-map --style=compressed scss:css"
+    "sass-dev": "sass --watch --update --style=expanded scss/styles.scss:css/styles.css",
+    "sass-prod": "sass --no-source-map --style=compressed scss/styles.scss:css/styles.css"
   },
   "dependencies": {
     "bootstrap": "^5.3.0-alpha1",
