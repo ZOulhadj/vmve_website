@@ -31,17 +31,18 @@
                         <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
+                        <a class="nav-link" href="index.html#features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
+                        <a class="nav-link" href="index.html#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#downloads">Downloads</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tutorial.html">Tutorial</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#downloads">Downloads</a>
-                    </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -120,10 +121,24 @@
         <div>
             <h1>Table of Contents</h1>
             <ul>
-                <li><a href="#ui">User Interface</a></li>
+                <li>
+                    <a href="#ui">User Interface</a>
+                    <ul>
+                        <li><a href="#main_viewport">Main Viewport</a></li>
+                        <li><a href="#environment_panel">Environment Panel</a></li>
+                        <li><a href="#object_editor_panel">Object Editor Panel</a></li>
+                        <li><a href="#console">Console</a></li>
+                    </ul>
+                </li>
                 <li><a href="#controls">Controls</a></li>
                 <li><a href="#importing">Importing models</a></li>
-                <li><a href="#exporting">Exporting models</a></li>
+                <li>
+                    <a href="#exporting">Exporting models</a>
+                    
+                    <ul>
+                        <li><a href="#encryption">Encryption</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         
@@ -133,64 +148,59 @@
             <div>
                 <p>
                     The user interface has four key components that each have a unique role.
-
-                    <ul style="list-style-type: none;">
-                        <li>
-                            <h5>1. Main Viewport</h5>
-                            <p>
-                                This is the main window that displays everything that is being rendered
-                                onto to screen and is the component which users will use to interact 
-                                with the virtual environment.
-                            </p>
-                        </li>
-                        <li>
-                            <h5>2. Environment Panel</h5>
-                            <p>
-
-                            </p>
-                        </li>
-                        <li>
-                            <h5>3. Object Editor Panel</h5>
-                            <p>
-                                
-                            </p>
-                        </li>
-                        <li>
-                            <h5>4. Console</h5>
-                            <p>
-                                The console window display all internal log messages onto the screen. Messages are
-                                categorized into three levels. 
-                                
-                                <ul>
-                                    <li>
-                                        <span class="text-white">Info</span>
-                                        <p>
-                                            Messages that are considered informational only.
-                                        </p>                                        
-                                    </li>
-                                    <li>
-                                        <span class="text-warning">Warning</span>
-                                        <p>
-                                            Messages that indicate an event of significance has occurred but
-                                            is not critical.
-                                        </p>                                        
-                                    </li>
-                                    <li>
-                                        <span class="text-danger">Error</span>
-                                        <p>
-                                            This is the most critical message type and indicates that something
-                                            severe has occurred which resulted in a failure.
-                                        </p>                                        
-                                    </li>
-                                    
-                                </ul>
-                            </p>
-                        </li>
-                    </ul>
-                    
-                    
                 </p>
                 <img style="max-width: 50%;" src="images/tutorial/user_interface.png" alt="">
+            </div>
+            <div>
+                <h5 id="main_viewport">1. Main Viewport</h5>
+                <p>
+                    This is the main window that displays everything that is being rendered
+                    onto to screen and is the component which users will use to interact 
+                    with the virtual environment.
+                </p>
+            </div>
+            <div>
+                <h5 id="environment_panel">2. Environment Panel</h5>
+                <p>
+
+                </p>
+            </div>
+            <div>
+                <h5 id="object_editor_panel">3. Object Editor Panel</h5>
+                <p>
+                    
+                </p>
+            </div>
+            <div>
+                <h5 id="console">4. Console</h5>
+                <p>
+                    The console window displays all internal log messages onto the screen. Messages are
+                    categorized into three levels that indicate the severity of the message.
+                    
+                    <ul>
+                        <li>
+                            <span>Info</span>
+                            <p>
+                                Messages that are considered informational only.
+                            </p>                                        
+                        </li>
+                        <li>
+                            <span class="text-warning">Warning</span>
+                            <p>
+                                Messages that indicate an event of significance has occurred but
+                                is not critical.
+                            </p>                                        
+                        </li>
+                        <li>
+                            <span class="text-danger">Error</span>
+                            <p>
+                                This is the most critical message type and indicates that something
+                                severe has occurred which resulted in a failure.
+                            </p>                                        
+                        </li>
+                        
+                    </ul>
+                </p>
             </div>
         </div>
 
@@ -204,26 +214,97 @@
                 <thead>
                     <tr>
                         <th scope="col">Action</th>
-                        <th scope="col">Shortcut</th>
+                        <th scope="col">Global Shortcuts</th>
+                        <th scope="col">Viewport Shortcuts</th>
+                        <th scope="col">Guizmo Shortcuts</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">Load Model</th>
                         <td><kbd>Ctrl + L</kbd></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th scope="row">Export Model</th>
                         <td><kbd>Ctrl + E</kbd></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th scope="row">Toggle Viewport</th>
                         <td><kbd>F1</kbd></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th scope="row">Toggle Fullscreen</th>
                         <td><kbd>F2</kbd></td>
+                        <td></td>
+                        <td></td>
                     </tr>
+                    <tr>
+                        <th scope="row">Toggle guizmo</th>
+                        <td></td>
+                        <td><kbd>E</kbd></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Move camera forward</th>
+                        <td></td>
+                        <td><kbd>W</kbd></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Move camera backwards</th>
+                        <td></td>
+                        <td><kbd>S</kbd></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Move camera left</th>
+                        <td></td>
+                        <td><kbd>A</kbd></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Move camera right</th>
+                        <td></td>
+                        <td><kbd>D</kbd></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Move camera up</th>
+                        <td></td>
+                        <td><kbd>Space</kbd></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Move camera down</th>
+                        <td></td>
+                        <td><kbd>Left Ctrl</kbd></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Move object</th>
+                        <td></td>
+                        <td></td>
+                        <td><kbd>M</kbd></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Rotate object</th>
+                        <td></td>
+                        <td></td>
+                        <td><kbd>R</kbd></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Scale object</th>
+                        <td></td>
+                        <td></td>
+                        <td><kbd>S</kbd></td>
+                    </tr>
+                    
                 </tbody>
                 
 
@@ -262,7 +343,11 @@
                     Once clicked, a new window will appear that will allow you to navigate your filesystem and
                     export a model.
                 </p>
-                <img style="max-width: 50%;" src="images/tutorial/exporting_2.png" alt="">
+                <img style="max-width: 50%;" src="images/tutorial/exporting_2.png" alt="">                
+            </div>
+
+            <div>
+                <h2 id="encryption">Encryption</h2>
             </div>
             
         </div>
